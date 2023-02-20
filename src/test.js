@@ -11,22 +11,27 @@ class GuessingGame {
     }
 
     guess() {
-        let avg = Math.round((this.min + this.max)/2);
+        let avg = Math.floor((this.min + this.max)/2);
         this.variant = avg;
         return this.variant;
     }
 
     lower() {
         this.max = this.variant;
-        this.variant = Math.round((this.variant + this.min)/2);
+        this.variant = Math.floor((this.variant + this.min)/2);
         return this.variant;
     }
 
     greater() {
         this.min = this.variant;
-        this.variant = Math.round((this.variant + this.max)/2);
+        this.variant = Math.floor((this.variant + this.max)/2);
         return this.variant;
     }
 }
 
-module.exports = GuessingGame;
+// 5
+game = new GuessingGame()
+game.setRange(0, 4048);
+result = game.guess() // 50
+// result = game.lower()
+console.log(result) 
